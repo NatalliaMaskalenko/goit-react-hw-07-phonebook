@@ -34,15 +34,10 @@ export const store = configureStore({
     }).concat(logger),
 });
 
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);
 
 // export default {store, persistor};
 
+export default {store};
 
-
-// const rootReduser = combineReducers({
-//     contacts: phonebookReducer,
-// });
-
-// const store = createStore(rootReduser, composeWithDevTools());
 

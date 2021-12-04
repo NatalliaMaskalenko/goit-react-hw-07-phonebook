@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import {addContact} from '../../redux/phonebook/phonebook-actions';
+import {addContact} from '../../redux/phonebook/phonebook-operations';
 import s from './Form.module.css'
 
 export default function Form() {

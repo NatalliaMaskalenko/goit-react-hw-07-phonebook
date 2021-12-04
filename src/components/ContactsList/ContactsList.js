@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 // import { connect } from 'react-redux';
-import {deleteContact} from '../../redux/phonebook/phonebook-actions';
+import {deleteContact, fetchContacts} from '../../redux/phonebook/phonebook-operations';
 import s from './ContactsList.module.css'
 import ContactsItem from '../ContactsItem';
 
@@ -18,6 +18,7 @@ export default function ContactsList () {
     
     const dispatch = useDispatch();
     const onDeleteContact = id => dispatch(deleteContact(id));
+    const fetchAllContacts = () => dispatch(fetchContacts());
 
     return (
     <ul className={s.contacts__list}>
