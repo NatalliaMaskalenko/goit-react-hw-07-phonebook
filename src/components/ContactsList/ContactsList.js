@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { connect } from 'react-redux';
 import {deleteContact, fetchContacts} from '../../redux/phonebook/phonebook-operations';
 import s from './ContactsList.module.css'
 import ContactsItem from '../ContactsItem';
@@ -18,16 +18,19 @@ export default function ContactsList () {
     
     const dispatch = useDispatch();
     const onDeleteContact = id => dispatch(deleteContact(id));
-    const fetchAllContacts = () => dispatch(fetchContacts());
+    
+    useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
     return (
     <ul className={s.contacts__list}>
-        {contacts.map(({id, name, number} ) => (
-             <ContactsItem
-                key={id}
-                name={name}
-                number={number}
-                onDeleteContact={()=> onDeleteContact(id)}
+            {contacts.map(({ id, name, number }) => (
+                <ContactsItem
+                    key={id}
+                    name={name}
+                    number={number}
+                    onDeleteContact={() => onDeleteContact(id)}
             />
         ))}
     </ul>
